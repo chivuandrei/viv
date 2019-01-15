@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <th>Index</th>
+    <th>Date</th>
+    <th >Value</th>
+    <th class="arrow_downward">Variation</th>
+  </tr>
+  <tr 
+    *ngFor="let statisticInfo of (data | slice: -10); let i = index"
+  >
+    <td>{{i}}</td>
+    <td>{{data[i].timestamp}}</td>
+    <td>{{data[i].value}}</td>
+    <td>{{calculateProcent(i)}}</td>
+  </tr>
+</table>
+
+
