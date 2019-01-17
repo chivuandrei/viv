@@ -53,7 +53,10 @@
     "prefixInterfaces": false,
     "inline": {
       "style": false,
-      "template": false
+      "template": false,
+      "serve": {
+        "host": "www.example.com"
+      }
     },
     "spec": {
       "class": false,

@@ -1,18 +1,14 @@
+<span>Set number of showed values</span><input (keyup)="setNumberOfVal($event)">
+
 <table>
   <tr>
-    <th>Index</th>
     <th>Date</th>
-    <th >Value</th>
+    <th>Value</th>
     <th class="arrow_downward">Variation</th>
   </tr>
-  <tr 
-    *ngFor="let statisticInfo of (data | slice: -10); let i = index"
-  >
-    <td>{{i}}</td>
-    <td>{{data[i].timestamp}}</td>
+  <tr *ngFor="let statisticInfo of (data | slice: numberOfVal); let i = index">
+    <td>{{data[i].timestamp | date: 'EEEE,dd-LLLL'}}</td>
     <td>{{data[i].value}}</td>
-    <td>{{calculateProcent(i)}}</td>
+    <td ><span class="material-icons">{{calculateProcent(i)}}</span> <i>{{procent}}</i></td>
   </tr>
 </table>
-
-

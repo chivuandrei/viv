@@ -8,24 +8,28 @@ import { Component,  OnChanges, Input } from '@angular/core';
 export class TableComponent {
   @Input() data: any;
   public procent: any;
-  public icon: any;
+  public numberOfVal: any = -10;
   constructor() { }
 
   calculateProcent(i: number) {
-    const up = 'arrow_upward';
-    const down = 'arrow_downward';
-    const equal = 'more_horiz';
     if (i > 0) {
-     return this.procent = Math.floor(this.data[i].value * 100 / this.data[i - 1].value);
-    }
-    if (this.procent > 10) {
-      return up;
-    } else if ( this.procent < 10 ) {
-      return down;
-    } else {
-      return equal;
+      this.procent = Math.round(((this.data[i - 1].value - this.data[i].value) / this.data[i].value) * 100 );
     }
 
+    if (this.procent > 10) { // The value increased by >10%
+      return 'arrow_upward';
+    } else if (this.procent < -10) { // The value decreased by >10%
+      return 'arrow_downward';
+    } else if (this.procent > 0 && this.procent < 10) { // The value increased by <10%
+      return 'arrow_forward';
+    } else if (this.procent < 0 && this.procent > -10) { // The value decreased by <10%
+      return 'arrow_back_ios';
+    } else {
+      return 'drag_handle';
+    }
   }
+
+  setNumberOfVal(event) { return  this.numberOfVal = -event.target.value; }
+
 
 }

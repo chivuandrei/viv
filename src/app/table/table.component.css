@@ -1,0 +1,19 @@
+table {
+  margin-top: 50px;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+th {
+  padding-top: 11px;
+  padding-bottom: 11px;
+  background-color: #4CAF50;
+  color: white;
+
+}
+
+td {
+ padding-right: 10px;
+}
